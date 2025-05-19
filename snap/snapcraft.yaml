@@ -31,6 +31,15 @@ apps:
       VIMRUNTIME: $SNAP/usr/share/nvim/runtime
     desktop: usr/share/applications/nvim.desktop
 
+slots:
+  nvim-bin:
+    interface: content
+    content: nvim-bin
+    source:
+      read:
+        - $SNAP/usr/bin
+        - $SNAP/usr/share
+
 parts:
   nvim:
     source: https://github.com/neovim/neovim.git
