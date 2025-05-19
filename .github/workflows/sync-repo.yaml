@@ -2,6 +2,7 @@
 
 name: Sync repo to Launchpad
 on:
+  workflow_dispatch:
   workflow_call:
     secrets:
       GIT_SSH_PRIVATE_KEY:
@@ -15,7 +16,7 @@ jobs:
   to_launchpad:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - uses: yesolutions/mirror-action@master

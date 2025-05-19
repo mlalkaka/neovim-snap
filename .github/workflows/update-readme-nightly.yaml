@@ -1,9 +1,9 @@
-name: automation
+name: automation-nightly
 on:
   workflow_dispatch:
-  # Run weekly at 11:45 UTC Wednesday.
+  # Run daily at 11:45 UTC.
   schedule:
-    - cron: '45 11 * * 3'
+    - cron: '45 11 * * *'
 
 jobs:
   # Updates the timestamp in README.md, which triggers a "push" event.
@@ -13,6 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: nightly
 
       - name: Set update date variable
         run: |
